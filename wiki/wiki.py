@@ -13,7 +13,7 @@ from PIL import Image
 
 #wielkosc monitora
 screenWidth, screenHeight = size()
-#wszystko w tekst bêdzie usuwane    
+#wszystko w tekst bÃªdzie usuwane    
 tab=[]
 tabboczne=[]
 #historia klikania
@@ -65,7 +65,7 @@ def zdjecie_boczne(x,zdj,tex,kt):
             f.write(req.content)
        
        obrazy.append(obraz)
-       #proba za³adowania zdjecia
+       #proba zaÂ³adowania zdjecia
        try:
         luki[kt].config(file=obraz)
         but=Label(image=luki[kt])
@@ -73,7 +73,7 @@ def zdjecie_boczne(x,zdj,tex,kt):
         w, h = kotek1.size
         zdj.config(height=h/15)
         
-       except:#w przeciwnym razie poka¿ error
+       except:#w przeciwnym razie pokaÂ¿ error
            but=Label(text="error formatu",bg="white")
 
            try:
@@ -83,7 +83,7 @@ def zdjecie_boczne(x,zdj,tex,kt):
     
 
 
-           #do naprawienia?? czasami za szybko dzia³a?
+           #do naprawienia?? czasami za szybko dziaÂ³a?
        try:
         zdj.window_create(END, window=but)
         zdj.insert(END,tex)
@@ -99,7 +99,7 @@ def zdjecie_boczne(x,zdj,tex,kt):
    #print(tex)
 
 
-#wy³uskanie tekstu
+#wyÂ³uskanie tekstu
 def znajdz(x):
     
     
@@ -283,8 +283,8 @@ def znajdz(x):
                 
 
 
-                #komórki dla bocznej tabelki  
-                #przysz³y me obliczaæ d³ugoœæ tabelki. mo¿e zrobiæ ³adniejszy kod 
+                #komÃ³rki dla bocznej tabelki  
+                #przyszÂ³y me obliczaÃ¦ dÂ³ugoÅ“Ã¦ tabelki. moÂ¿e zrobiÃ¦ Â³adniejszy kod 
                 if rodzaj==1:
                     c=0
                     for i in x:
@@ -295,7 +295,7 @@ def znajdz(x):
                         elif i.find("a")!=None:
 
 
-                            if i.find("a").find("img")!=None:#znowu cos zdjêcie ................
+                            if i.find("a").find("img")!=None:#znowu cos zdjÃªcie ................
                                 link="https:" + i.find("a").find("img").get("src")
                                 ewtext=i.get_text()
                                 zdjecie(link,ewtext,1)
@@ -314,7 +314,7 @@ def znajdz(x):
                                 c+=1
                                 ile+=1
                                 
-                        #zwyk³y tekst w bocznej ramce
+                        #zwykÂ³y tekst w bocznej ramce
                         else:
                             c,ile,wysokosc=zwyktekst(c,ile,wysokosc)
                                      
@@ -324,7 +324,7 @@ def znajdz(x):
                         tabboczne[-2-j].config(height=wysokosc)
                   
 
-                #komórki dla innych tabelek
+                #komÃ³rki dla innych tabelek
                 else:
                     pass
 
@@ -332,7 +332,7 @@ def znajdz(x):
                 for i in x:
                     wydobycie(i,rodzaj)
 
-        #poprawia wygl¹d bocznej, zmieniaj¹c rozmiar komórek.  ale mo¿e zamienie na ka¿d¹ tabelke     
+        #poprawia wyglÂ¹d bocznej, zmieniajÂ¹c rozmiar komÃ³rek.  ale moÂ¿e zamienie na kaÂ¿dÂ¹ tabelke     
         def poprawa_bocznej():
             liczby=[]
             for i in tabboczne:
@@ -340,18 +340,18 @@ def znajdz(x):
                     liczby.append(i)
             maks=max(liczby)
             tabboczne[0].grid(columnspan=maks)
-            for i in range(len(tabboczne)):#sprawdza ca³a tabelke
+            for i in range(len(tabboczne)):#sprawdza caÂ³a tabelke
                 if type(tabboczne[i])==int: #sprawdza czy liczba
                     if tabboczne[i]!=maks:#sprawdza czy jest najwieksza 
-                        for j in range(tabboczne[i]):#sprawdza ile ich jest w rzêdzie 
-                            obliczone=int(24*maks/tabboczne[i])#obliczona d³ugosc komórki
+                        for j in range(tabboczne[i]):#sprawdza ile ich jest w rzÃªdzie 
+                            obliczone=int(24*maks/tabboczne[i])#obliczona dÂ³ugosc komÃ³rki
                             
                             tabboczne[i-j-1].config(width=obliczone)#zmiana szerokosci 
                             if tabboczne[i-j-1]!=tabboczne[0]:#sprawdza czy nie jest label
                                 if obliczone/24==maks:#center
                                     tabboczne[i-j-1].tag_configure("center", justify='center')
                                     tabboczne[i-j-1].tag_add("center",1.0,END)
-                                if len(tabboczne[i-j-1].get(1.0,END))<=24*obliczone:#sprawdza d³ugosc oraz ja zmienia
+                                if len(tabboczne[i-j-1].get(1.0,END))<=24*obliczone:#sprawdza dÂ³ugosc oraz ja zmienia
                                     tabboczne[i-j-1].config(height=1)
                                 else:
                                     n=2
@@ -386,8 +386,8 @@ def znajdz(x):
             
 
 
-       #spis treœci do zrobienia!!!!!!!!!!!!!!
-    def h2(x,wielkosc):#podtytu³ i spis tresci
+       #spis treÅ“ci do zrobienia!!!!!!!!!!!!!!
+    def h2(x,wielkosc):#podtytuÂ³ i spis tresci
         tekst.insert(END,"\n")
         
         headline=x.find(class_="mw-headline")
@@ -398,7 +398,7 @@ def znajdz(x):
             tekst.window_create(END, window=Lobel)
             
         else:
-            x.get_text()#spis treœci
+            x.get_text()#spis treÅ“ci
         tekst.insert(END,"\n")
 
     def a(x):#przycisk w tekscie
@@ -446,7 +446,7 @@ def znajdz(x):
         h2(x,10)
     elif x.name=="b":
         b(x)   
-    elif x.name=="style": #niepotrzebne pomin¹æ
+    elif x.name=="style": #niepotrzebne pominÂ¹Ã¦
         pass
     else:#zaglebianie sie w tekst
         for i in x:
@@ -456,7 +456,7 @@ def znajdz(x):
             
           
         
-#l¹czenie oraz gridy
+#lÂ¹czenie oraz gridy
 def aktualna(url):
     def des1():
         tekst.delete('1.0', END)
@@ -485,7 +485,7 @@ def aktualna(url):
     dziala=1
     tekst.config(state=NORMAL)
            
-    #kasuje ca³y tekst przy ka¿dym odpaleniu 
+    #kasuje caÂ³y tekst przy kaÂ¿dym odpaleniu 
     des1()
     
     sl=Thread(target=slep)
@@ -560,7 +560,7 @@ url="https://pl.wikipedia.org/wiki/Specjalna:Losowa_strona"
 #url="https://pl.wikipedia.org/wiki/Kiwiciowce"
 #url="https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_Bystrzycy_Dolnej"
 #url="https://pl.wikipedia.org/wiki/Alessio_Sitti"
-url="https://pl.wikipedia.org/wiki/Boucoiran-et-Nozi%C3%A8res"
+#url="https://pl.wikipedia.org/wiki/Boucoiran-et-Nozi%C3%A8res"
 
 #surowy wyglad
 okno=Tk()
@@ -614,7 +614,7 @@ miniframe.grid(row=0,column=0,columnspan=4)
 
 
 
-#sekcja butonów
+#sekcja butonÃ³w
 
 fontbut=("a",10,"bold")#font
 szero=10 #szerokosc butona
